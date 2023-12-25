@@ -64,3 +64,13 @@ body {
     align-items: center;
     margin-left: 90px;
 }
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+    width: 300px;
+    height: 300px
+}

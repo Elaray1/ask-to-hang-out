@@ -2,15 +2,76 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="./style/css/styles.css">
-        
+        <title>Website for my love Quinn</title>
     </head> 
     <body>
         <div class="container">
             <div >
-                <h1 class = "header_text">Do you wanna go out with me ehe</h1>
+                <h1 class = "header_text">Do you want to marry me? (And buy me a Porsche!)</h1>
             </div>
             <div class="gif_container">
                 <img src="https://media.giphy.com/media/LnKonfpQ44fNvuGLkA/giphy.gif" alt="Cute animated illustration">
+
+                <img
+                    id="sadImage1"
+                    class="hidden"
+                    src="https://sun9-2.userapi.com/impg/BIU1_RftqhMR0lq9JyKBCKge7h2ESll3Jsd3tg/TlgXChQMFwY.jpg?size=531x649&quality=95&sign=435c7741357023a228d0d0f289945796&type=album"
+                    alt="Sad image 1"
+                >
+                <img
+                    id="sadImage2"
+                    class="hidden"
+                    src="https://sun9-22.userapi.com/impg/lhEBoLjrkpc0gLwrPyPU-QSgaj98zw1GWn8Y5w/obkLxjNG_X4.jpg?size=758x933&quality=95&sign=4d5535eae75b00d4629dd4fd674ceb8c&type=album"
+                    alt="Sad image 2"
+                >
+                <img
+                    id="sadImage3"
+                    class="hidden"
+                    src="https://sun9-6.userapi.com/impg/Vo38e2hx8T0vLmYkx9ND_Ap5K6-CSeH6PJ4N8g/t3TBN-9cW8I.jpg?size=542x771&quality=95&sign=6afd1d300b7e20c7b9fa8a5f92b5b74d&type=album"
+                    alt="Sad image 3"
+                >
+                <img
+                    id="sadImage4"
+                    class="hidden"
+                    src="https://sun9-25.userapi.com/impg/YgrbSIkgjre16wiZThP2TYAhJCZy90jOhNH-Hg/iumjAtOMOvw.jpg?size=1620x2160&quality=95&sign=5134c606552038ce423c343b30ef364e&type=album"
+                    alt="Sad image 4"
+                >
+                <img
+                    id="sadImage5"
+                    class="hidden"
+                    src="https://sun9-34.userapi.com/impg/vKhXfG6xX25KwD6XL8xlkYCuHdU723bDgRjnbg/6a8ahGSRPMo.jpg?size=1620x2160&quality=95&sign=6ca33ea64e9dcc6424fdcbcccfa1fbd7&type=album"
+                    alt="Sad image 5"
+                >
+                <img
+                    id="sadImage6"
+                    class="hidden"
+                    src="https://sun9-57.userapi.com/impg/7_rMCdOMHDsRc7_Is9cjRDO63FGZ8MRTuBnwjg/9Fak5VeidzY.jpg?size=1110x1014&quality=96&sign=74e931252ed7bf5a45984f46d339352f&type=album"
+                    alt="Sad image 6"
+                >
+                <img
+                    id="sadImage7"
+                    class="hidden"
+                    src="https://sun9-56.userapi.com/impg/gPUMJe7Ku9gVHrzsjcBOrg2-EQCxV6TpYBkiJg/XF2XaXDiC9Y.jpg?size=1620x2160&quality=95&sign=1950d4d39238e9e79801a11206549721&type=album"
+                    alt="Sad image 7"
+                >
+                <img
+                    id="sadImage8"
+                    class="hidden"
+                    src="https://sun9-76.userapi.com/impg/b2fciywxsIg_kbFpYssagU_Bw4HUcL4LrDFxUg/NumcCgGGShg.jpg?size=1620x2160&quality=95&sign=427708df6ce3dffa3231d40e938bfae4&type=album"
+                    alt="Sad image 8"
+                >
+                <img
+                    id="sadImage9"
+                    class="hidden"
+                    src="https://sun9-40.userapi.com/impg/HoHV7fKtnbz9tz2bog9JuLxrV_og822lb8q24Q/EH0JgWY_Ads.jpg?size=652x738&quality=96&sign=67b3fce5afec8ae8afc5d760dcc368df&type=album"
+                    alt="Sad image 9"
+                >
+                <img
+                    id="sadImage10"
+                    class="hidden"
+                    src="https://sun9-15.userapi.com/impg/IuN_gGTrFajwOd0JpyUOxrYGjNDxlo800oscSg/rofpEqdyyYI.jpg?size=608x854&quality=96&sign=b51eb7f1b4f3d25eee346eeb55aff374&type=album"
+                    alt="Sad image 10"
+                >
             </div>
             <div class = "buttons">
                 <button class="btn" id = "yesButton" onclick="nextPage()">Yes</button>
@@ -21,8 +82,24 @@
                     }
                     
                     function moveButton() {
-                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
-                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+                        // delete class "show" from all images with class "show"
+                        const images = document.getElementsByClassName('show');
+                        for (let i = 0; i < images.length; i++) {
+                            images[i].classList.remove('show');
+                        }
+
+                        // first need to show random image with id sadImage1 - 10 for a 2 seconds by adding css class "show"
+                        // if previous image was not hidden, then hide it
+                        const randomImageNumber = Math.floor(Math.random() * 10) + 1;
+                        const randomImageId = `sadImage${randomImageNumber}`;
+                        document.getElementById(randomImageId).classList.add('show');
+                        setTimeout(() => {
+                            document.getElementById(randomImageId).classList.remove('show');
+                        }, 2000);                        
+                        
+                        // then move button to random position
+                        const x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+                        const y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
                         document.getElementById('noButton').style.left = `${x}px`;
                         document.getElementById('noButton').style.top = `${y}px`;
                     }

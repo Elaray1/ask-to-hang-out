@@ -3,8 +3,63 @@
     <head>
         <link rel="stylesheet" href="./style/css/yes_styles.css">
         
+        <style>
+            .happy-image {
+                width: 300px;
+                height: 300px;
+                position: absolute;
+                animation: spinResize 5s infinite;
+            }
+    
+            @keyframes spinResize {
+                0% {
+                    transform: rotate(0deg) scale(1);
+                }
+                50% {
+                    transform: rotate(360deg) scale(2);
+                }
+                100% {
+                    transform: rotate(720deg) scale(1);
+                }
+            }
+
+            @keyframes moveImage {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(50px, 50px);
+            }
+            50% {
+                transform: translate(100px, -50px);
+            }
+            75% {
+                transform: translate(-50px, 100px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        </style>
     </head> 
     <body>
+        <img
+            class="happy-image"
+            src="https://sun9-79.userapi.com/impg/sER0vCGHEQMrsmGPMZGdGosezYxjd7rF3zdT6A/nvM00Ygc070.jpg?size=482x578&quality=96&sign=aff9d16dc462988d13b70cf3cd3c35ad&type=album"
+        >
+        <img
+            class="happy-image"
+            src="https://sun9-67.userapi.com/impg/ewGuRwyaF3fLPxAI729VZyLBTsK6CTLxipo7-A/aVZgoHeGkt4.jpg?size=556x650&quality=96&sign=c5d0e5efb546eb9256661ee4af02e81e&type=album"
+        >
+        <img
+            class="happy-image"
+            src="https://sun9-7.userapi.com/impg/yZe-o_J7gDR7i6vOQkVQs4JMN5vnWSTN6A2oaw/XUW2N4zR3k4.jpg?size=510x658&quality=96&sign=57379303f2b423746ab5178ba65e5368&type=album"
+        >
+        <img
+            class="happy-image"
+            src="https://sun9-54.userapi.com/impg/qunliwHZ0ncy-xaezMvokMNrs6YO5kz7DypKGA/a5TdO14faEM.jpg?size=630x786&quality=95&sign=c4c9bf9e1103be3ddc9006dea768c6e6&type=album"
+        >
+
         <div class="container">
             <div >
                 <h1 class = "header_text">Yippie!!! </h1>
@@ -12,8 +67,24 @@
             <div class="gif_container">
                 <img src="./style/images/cute-cat.gif" alt="Cute animated illustration">
             </div>
-            <p class = "text"> See you soon for a suprise!</p>
+            <p class = "text"> See you soon baobei!</p>
         </div>
        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Get all elements with the class "happy-image"
+                var happyImages = document.querySelectorAll(".happy-image");
+
+                happyImages.forEach(function (image) {
+                    // Calculate random positions
+                    var randomX = Math.floor(Math.random() * window.innerWidth);
+                    var randomY = Math.floor(Math.random() * window.innerHeight);
+
+                    // Apply random positions
+                    image.style.left = randomX + "px";
+                    image.style.top = randomY + "px";
+                });
+            });
+        </script>
     </body> 
 </html>
